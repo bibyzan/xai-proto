@@ -5,7 +5,7 @@ This repository is a downstream fork of https://github.com/xai-org/xai-proto tai
 - A Go module (go.mod) for the module path github.com/bibyzan/xai-proto.
 - Generated Go code under gen/go committed to the repository to support vendoring.
 
-The protobuf definitions are otherwise unchanged. If you are looking for the upstream project, see https://github.com/xai-org/xai-proto.
+The protobuf definitions are otherwise unchanged.
 
 ## Go usage
 
