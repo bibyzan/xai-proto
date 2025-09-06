@@ -7,10 +7,6 @@ This repository is a downstream fork of https://github.com/xai-org/xai-proto tai
 
 The protobuf definitions are otherwise unchanged. If you are looking for the upstream project, see https://github.com/xai-org/xai-proto.
 
-# xAI API Protobuf Definitions
-
-This repository hosts the public Protocol Buffer (protobuf) definitions for xAI's gRPC-based APIs. These protobuf files define the service interfaces and message structures compatible with xAI's gRPC servers, enabling developers to generate client SDKs in any language supported by the protobuf and gRPC ecosystems. xAI provides an official SDK for [Python](https://github.com/xai-org/xai-sdk-python), which is built on top of these protobuf definitions.
-
 ## Go usage
 
 Install
@@ -54,6 +50,13 @@ func main() {
 	// auth := v1.NewAuthClient(conn)
 }
 ```
+
+Original readme contents below
+
+# xAI API Protobuf Definitions
+
+This repository hosts the public Protocol Buffer (protobuf) definitions for xAI's gRPC-based APIs. These protobuf files define the service interfaces and message structures compatible with xAI's gRPC servers, enabling developers to generate client SDKs in any language supported by the protobuf and gRPC ecosystems. xAI provides an official SDK for [Python](https://github.com/xai-org/xai-sdk-python), which is built on top of these protobuf definitions.
+
 
 ## Code Generation from proto definitions
 
