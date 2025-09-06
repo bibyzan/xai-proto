@@ -9,15 +9,13 @@ The protobuf definitions are otherwise unchanged.
 
 ## Go usage
 
-Install
-
-- Add this module to your project:
+### Install
 
 ```bash
 go get github.com/bibyzan/xai-proto@latest
 ```
 
-Example
+### Example
 
 Manually creating a single gRPC connection and instantiating the Chat client:
 
