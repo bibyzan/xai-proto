@@ -1,4 +1,4 @@
-Fork notice
+## Fork notice
 
 This repository is a downstream fork of https://github.com/xai-org/xai-proto tailored for Go consumers. It adds:
 - Buf code generation configuration with Go protoc and gRPC plugins.
