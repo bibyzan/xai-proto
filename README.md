@@ -1,15 +1,59 @@
-> Fork notice
->
-> This repository is a downstream fork of https://github.com/xai-org/xai-proto tailored for Go consumers. It adds:
-> - Buf code generation configuration with Go protoc and gRPC plugins.
-> - A Go module (go.mod) for the module path github.com/bibyzan/xai-proto.
-> - Generated Go code under gen/go committed to the repository to support vendoring.
->
-> The protobuf definitions are otherwise unchanged. If you are looking for the upstream project, see https://github.com/xai-org/xai-proto.
+Fork notice
+
+This repository is a downstream fork of https://github.com/xai-org/xai-proto tailored for Go consumers. It adds:
+- Buf code generation configuration with Go protoc and gRPC plugins.
+- A Go module (go.mod) for the module path github.com/bibyzan/xai-proto.
+- Generated Go code under gen/go committed to the repository to support vendoring.
+
+The protobuf definitions are otherwise unchanged. If you are looking for the upstream project, see https://github.com/xai-org/xai-proto.
 
 # xAI API Protobuf Definitions
 
 This repository hosts the public Protocol Buffer (protobuf) definitions for xAI's gRPC-based APIs. These protobuf files define the service interfaces and message structures compatible with xAI's gRPC servers, enabling developers to generate client SDKs in any language supported by the protobuf and gRPC ecosystems. xAI provides an official SDK for [Python](https://github.com/xai-org/xai-sdk-python), which is built on top of these protobuf definitions.
+
+## Go usage
+
+Install
+
+- Add this module to your project:
+
+```bash
+go get github.com/bibyzan/xai-proto@latest
+```
+
+Example
+
+Manually creating a single gRPC connection and instantiating the Chat client:
+
+```go
+package main
+
+import (
+	"crypto/tls"
+	"log"
+
+	xaiproto "github.com/bibyzan/xai-proto/gen/go/github.com/bibyzan/xai-proto/gen/go/xai/api/v1"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+)
+
+func main() {
+	conn, err := grpc.Dial(
+		"api.x.ai:443",
+		grpc.WithTransportCredentials(credentials.NewTLS(&tls.Config{})),
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer conn.Close()
+
+	chat := xaiproto.NewChatClient(conn)
+	_ = chat
+
+	// Optionally, instantiate other clients from the same connection:
+	// auth := v1.NewAuthClient(conn)
+}
+```
 
 ## Code Generation from proto definitions
 
